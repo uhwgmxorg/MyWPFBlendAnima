@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWPFBlendAnima", "MyWPFBlendAnima\MyWPFBlendAnima.csproj", "{43f1bdf5-fa4d-4554-ae95-94270ee5e859}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43F1BDF5-FA4D-4554-AE95-94270EE5E859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F1BDF5-FA4D-4554-AE95-94270EE5E859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F1BDF5-FA4D-4554-AE95-94270EE5E859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F1BDF5-FA4D-4554-AE95-94270EE5E859}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

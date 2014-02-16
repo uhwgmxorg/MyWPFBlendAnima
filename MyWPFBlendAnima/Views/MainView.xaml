@@ -1,0 +1,55 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:ic="http://schemas.microsoft.com/expression/2010/interactions"
+	xmlns:local="clr-namespace:MyWPFBlendAnima"
+	mc:Ignorable="d"
+	x:Class="MyWPFBlendAnima.MainView"
+	d:DesignWidth="640" d:DesignHeight="480">
+	<UserControl.Resources>
+		<local:MainViewModel x:Key="MainViewModelDataSource" />
+		<Storyboard x:Key="Storyboard_Shift">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
+				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="319"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="Storyboard_ShiftBack">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
+				<SplineDoubleKeyFrame KeyTime="0" Value="319"/>
+				<SplineDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource MainViewModelDataSource}}" d:DataContext="{d:DesignData /SampleData/MainViewModelSampleData.xaml}">
+		<i:Interaction.Triggers>
+			<ic:DataTrigger Binding="{Binding Start1}" Value="True">
+				<ic:ControlStoryboardAction Storyboard="{StaticResource Storyboard_Shift}"/>
+			</ic:DataTrigger>
+			<ic:DataTrigger Binding="{Binding Start1}" Value="False">
+				<ic:ControlStoryboardAction Storyboard="{StaticResource Storyboard_ShiftBack}"/>
+			</ic:DataTrigger>
+		</i:Interaction.Triggers>
+		<Button Content="#1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="58,162,0,0">			
+            <i:Interaction.Triggers>
+            	<i:EventTrigger EventName="Click">
+            		<ic:CallMethodAction MethodName="Button1" TargetObject="{Binding}"/>
+            	</i:EventTrigger>
+            </i:Interaction.Triggers>
+		</Button>
+		<Ellipse x:Name="ellipse" Fill="#FF6CA4D3" HorizontalAlignment="Left" Height="100" Stroke="Black" VerticalAlignment="Top" Width="100" Margin="183,140,0,0" RenderTransformOrigin="0.5,0.5">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+	</Grid>
+</UserControl>
